@@ -23,7 +23,7 @@ jobs:
         # Start XVFB so that Electron can start and then have a screenshot taken
         /usr/bin/Xvfb :0 &
         # Run the test which generates the screenshot
-        npm start
+        xvfb-run npm start
         # Stage the captured screenshot
         git add screenshot-*.png
         git commit -m "Commit the captured screenshot"
