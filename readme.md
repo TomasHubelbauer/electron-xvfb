@@ -7,3 +7,5 @@ I can rule out VS Code as the cause.
 I am using Electron 6.1.5 which is the version my broken VS Code (1.40.2) uses.
 
 `npm start` and check the [GitHub Actions workflow](.github/workflows/main.yml).
+
+## To-Do
