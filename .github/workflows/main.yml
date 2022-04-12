@@ -26,9 +26,11 @@ jobs:
         npm start
         # Stage the captured screenshot
         git add screenshot-*.png
+        # Reset unstaged changes so that Git commit won't fail (e.g.: package-lock.json, temporary files, …)
+        git checkout -- .
         git commit -m "Commit the captured screenshot"
         # Authenticate with GitHub using the out of the box workflow integration PAT
-        git remote set-url origin https://tomashubelbauer:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}
+        git remote set-url origin https://${{github.repository_owner}}:${{github.token}}@github.com/${{github.repository}}
         # Pull before pushing to integrate fast forward changes if any
         git pull --rebase
         # Push the generated data to GitHub
