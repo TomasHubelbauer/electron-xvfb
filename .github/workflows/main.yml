@@ -10,8 +10,6 @@ jobs:
       with:
         ref: main
     - name: Capture the screenshot
-      env:
-        DISPLAY: ':0.0'
       run: |
         set -x
         # Configure Git for the push from the workflow to the repository
@@ -20,6 +18,7 @@ jobs:
         # Install Node dependencies
         npm install
         # Start XVFB so that Electron can start and then have a screenshot taken
+        export DISPLAY=":0"
         /usr/bin/Xvfb :0 &
         # Run the test which generates the screenshot
         npm start
