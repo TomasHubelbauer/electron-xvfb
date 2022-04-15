@@ -18,6 +18,7 @@ jobs:
         # Install Node dependencies
         npm install
         # Start XVFB so that Electron can start and then have a screenshot taken
+        export DISPLAY=":0"
         /usr/bin/Xvfb :0 &
         # Run the test which generates the screenshot
         npm start
